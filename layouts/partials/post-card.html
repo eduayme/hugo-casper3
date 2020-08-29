@@ -12,27 +12,31 @@
 
         <div class="post-card-content">
 
-            <a class="post-card-content-link" href="{{ .context.Permalink }}">
+            <div class="post-card-content-link">
 
                 <header class="post-card-header">
-                    {{ with .context.Params.tags }}
-                        {{ $primaryTag := (index . 0) }}
-                        <div class="post-card-primary-tag">{{ $primaryTag }}</div>
+                    {{ with .context.Params.categories }}
+                        {{ $primaryCategory := (index . 0) }}
+                        <a class="post-card-primary-category" href="{{ "/categories/" | relLangURL }}{{ $primaryCategory | urlize }}">{{ $primaryCategory }}</a>
                     {{ end }}
 
-                    <h2 class="post-card-title">{{ .context.Title }}</h2>
+                    <h2 class="post-card-title">
+                        <a class="post-card-title no-padding" href="{{ .context.Permalink }}">
+                            {{ .context.Title }}
+                        </a>
+                    </h2>
                 </header>
 
                 <section class="post-card-excerpt">
                     <p>{{ .context.Summary }}</p>
                 </section>
 
-            </a>
+            </div>
 
             <footer class="post-card-meta">
                     <div class="post-card-byline-content">
                         <span class="post-card-byline-date"><time datetime="{{ .context.Date.Format "2006-31-01" }}">{{ .context.Date.Format "2 January 2006" }}</time>
-                        <span class="bull">&bull;</span> {{ .context.ReadingTime }} min read</span>
+                        <span class="bull">&bull;</span> {{ .context.ReadingTime }} min de lectura</span>
                     </div>
                 </footer>
 

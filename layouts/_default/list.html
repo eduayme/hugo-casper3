@@ -12,7 +12,7 @@
                 {{ if .Param "description" }}
                     {{ .Param "description" }}
                 {{ else }}
-                    A collection of {{ len .Pages }} post{{ if gt (len .Pages) 1 }}s{{ end }}
+                    Un total de {{ len .Pages }} artículo{{ if gt (len .Pages) 1 }}s{{ end }}
                 {{ end }}
             </h2>
         </div>

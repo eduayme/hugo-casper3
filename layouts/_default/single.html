@@ -13,10 +13,11 @@
 
             <header class="post-full-header">
 
-                {{ with .Params.tags }}
-                    {{ $primaryTag := (index . 0) }}
-                    <a href="{{ "/tags/" | relLangURL }}{{ $primaryTag | urlize }}">{{ $primaryTag }}</a>
-                {{ end }}
+                <div class="byline-meta-content">
+                    {{ range $index, $name := .Params.categories }}
+                        <a class="margin-sides category post-card-primary-category" href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a>
+                    {{ end }}
+                </div>
 
                 <h1 class="post-full-title">{{ .Title }}</h1>
 
@@ -51,6 +52,18 @@
                     {{ .Content }}
                 </div>
             </section>
+
+            <div class="post-full-byline">
+                <section class="post-full-byline-content">
+                    <section class="post-full-byline-meta">
+                        <div class="byline-meta-content center">
+                            {{ range $index, $name := .Params.tags }}
+                                <a class="tags margin-sides byline-reading-time" href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a>
+                            {{ end }}
+                        </div>
+                    </section>
+                </section>
+            </div>
 
         </article>
 

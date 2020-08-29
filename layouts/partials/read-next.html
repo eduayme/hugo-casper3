@@ -6,7 +6,7 @@
     </header>
     <div class="read-next-card-content">
         <ul>
-            {{ range first 3 (where (index $.Site.Taxonomies.tags $primaryCategory).Pages "Section" "post") }}
+            {{ range first 3 (where (index $.Site.Taxonomies.categories $primaryCategory).Pages "Section" "post") }}
             <li>
                 <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
                 <div class="read-next-card-meta">

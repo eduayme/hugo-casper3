@@ -12,7 +12,8 @@
                     <div class="read-next-card-meta">
                         <p>
                             <time datetime="{{.Date.Format "2006-31-01"}}">{{.Date.Format "01 Jan 2006"}}</time>
-                            {{ if .Params.reading_time }} – {{ .Params.reading_time }} min read {{ end }}
+                            <span class="bull">&bull;</span>
+                            {{ .ReadingTime }} min read
                         </p>
                     </div>
                 </li>

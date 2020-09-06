@@ -29,7 +29,8 @@
                     {{ if .Site.Params.linkedin }}<a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener">Linkedin</a>{{ end }}
                     {{ if .Site.Params.twitter }}<a href="{{ .Site.Params.twitter }}" target="_blank" rel="noopener">Twitter</a>{{ end }}
                     {{ if .Site.Params.github }}<a href="{{ .Site.Params.github }}" target="_blank" rel="noopener">Github</a>{{ end }}
-                    <a href="https://eduayme.github.io" target="_blank" rel="noopener" style="opacity: 0.5;">Blog by Eduard Aymerich</a>
+                    {{ if .Site.Params.github }}
+                    <a href="{{ .Site.Params.website }}" target="_blank" rel="noopener" style="opacity: 0.5;">Blog by Eduard Aymerich</a>{{ end }}
                 </nav>
             </div>
         </footer>

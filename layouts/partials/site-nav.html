@@ -8,8 +8,12 @@
 
         <div class="site-nav-content">
             <ul class="nav" role="menu">
-                {{ range $.Site.Menus.main }}
-                <li class="nav-home" role="menuitem"><a href="{{ .URL }}">{{- .Name -}}</a></li>
+                {{ range sort $.Site.Menus.main "Weight" }}
+                    <li class="nav-home" role="menuitem">
+                        <a href="{{ .URL }}">
+                            {{- .Name -}}
+                        </a>
+                    </li>
                 {{ end }}
             </ul>
         </div>

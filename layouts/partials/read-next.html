@@ -1,23 +1,23 @@
-{{ with .Params.categories }}
-{{ $primaryCategory := (index . 0) }}
 <article class="read-next-card">
     <header class="read-next-card-header">
-        <h3><span>Más en</span> <a href="{{ "/categories/" | relLangURL }}{{ $primaryCategory | urlize }}">{{ $primaryCategory }}</a></h3>
+        Artículos relacionados
     </header>
     <div class="read-next-card-content">
+        {{ $related := .Site.RegularPages.Related . | first 5 }}
+        {{ with $related }}
         <ul>
-            {{ range first 3 (where (index $.Site.Taxonomies.categories $primaryCategory).Pages "Section" "post") }}
+            {{ range . }}
                 <li>
                     <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
                     <div class="read-next-card-meta">
                         <p>
                             <time datetime="{{.Date.Format "2006-31-01"}}">{{.Date.Format "01 Jan 2006"}}</time>
-                            {{ if .Params.reading_time }} – {{ .Params.reading_time }} {{ end }}
+                            {{ if .Params.reading_time }} – {{ .Params.reading_time }} min read {{ end }}
                         </p>
                     </div>
                 </li>
             {{ end }}
         </ul>
+        {{ end }}
     </div>
 </article>
-{{ end }}
